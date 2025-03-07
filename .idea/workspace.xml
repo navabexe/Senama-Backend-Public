@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="66b4b71a-b4b9-4728-a0bf-72ffaa8cac17" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Senama-Backend-FastApi.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dependencies/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dependencies/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dependencies/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/exceptions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/exceptions/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/exceptions/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/exceptions/validation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/middleware/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/middleware/logging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/middleware/rate_limit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/admin/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/admin/approve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/admin/deactivate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/admin/remove.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/advertisements/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/advertisements/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/advertisements/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/advertisements/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/advertisements/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/auth/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/auth/logout.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/auth/otp_send.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/auth/otp_verify.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/auth/signup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/blocks/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/blocks/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/blocks/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/blocks/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/blocks/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/business_categories/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/business_categories/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/business_categories/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/business_categories/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/business_categories/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/collaborations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/collaborations/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/collaborations/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/collaborations/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/collaborations/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/notifications/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/notifications/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/notifications/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/notifications/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/notifications/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/orders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/orders/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/orders/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/orders/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/orders/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/product_categories/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/product_categories/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/product_categories/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/product_categories/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/product_categories/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/products/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/products/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/products/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/products/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/products/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/reports/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/reports/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/reports/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/reports/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/reports/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/sessions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/sessions/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/sessions/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/sessions/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/sessions/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/stories/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/stories/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/stories/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/stories/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/stories/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/users/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/users/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/users/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/users/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/users/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/vendors/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/vendors/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/vendors/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/vendors/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/vendors/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/wallet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/wallet/transactions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/wallet/transactions/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/wallet/transactions/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/wallet/transactions/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/v1/wallet/transactions/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/auth/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/auth/blacklist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/auth/jwt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/auth/otp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/logging/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/logging/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/session.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/user_interaction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/utils/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/utils/hash.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/utils/pagination.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/validators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/indexes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/advertisement.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/block.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/business_category.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/collaboration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/common.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/log.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/notification.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/order.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/product.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/product_category.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/report.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/session.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/story.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/transaction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/vendor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/advertisement/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/advertisement/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/advertisement/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/advertisement/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/auth/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/auth/otp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/auth/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/auth/signup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/block/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/block/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/block/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/block/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/business_category/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/business_category/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/business_category/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/business_category/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/collaboration/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/collaboration/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/collaboration/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/collaboration/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/log/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/log/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/log/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/log/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/notification/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/notification/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/notification/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/notification/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/order/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/order/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/order/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/order/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/pagination.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/product/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/product/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/product/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/product/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/product_category/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/product_category/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/product_category/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/product_category/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/report/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/report/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/report/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/report/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/session/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/session/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/session/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/session/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/story/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/story/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/story/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/story/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/transaction/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/transaction/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/transaction/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/transaction/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/user/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/user/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/user/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/user/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/vendor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/vendor/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/vendor/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/vendor/signup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/vendor/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin/approve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin/deactivate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/admin/remove.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/advertisements/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/advertisements/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/advertisements/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/advertisements/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/advertisements/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth/logout.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth/otp_send.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth/otp_verify.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/auth/signup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/blocks/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/blocks/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/blocks/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/blocks/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/blocks/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/business_categories/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/business_categories/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/business_categories/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/business_categories/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/business_categories/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/collaborations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/collaborations/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/collaborations/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/collaborations/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/collaborations/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/log/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/log/log.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/notifications/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/notifications/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/notifications/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/notifications/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/notifications/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/orders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/orders/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/orders/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/orders/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/orders/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product/position.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product_categories/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product_categories/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product_categories/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product_categories/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product_categories/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/reports/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/reports/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/reports/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/reports/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/reports/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/sessions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/sessions/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/sessions/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/sessions/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/sessions/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/story/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/story/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/story/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/story/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/story/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/users/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/users/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/users/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/users/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/users/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/vendor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/vendor/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/vendor/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/vendor/linked.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/vendor/products.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/vendor/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/vendor/search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/vendor/stories.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/vendor/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/wallet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/wallet/transactions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/wallet/transactions/create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/wallet/transactions/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/wallet/transactions/read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/wallet/transactions/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_main.http" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FastAPI main" />
+        <option value="FastAPI test_main" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2ts9ku0gF6OQE43LchvE7vXgI9p" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "FastAPI.Senama-Backend-FastApi.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Senama-Backend-FastApi/services",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Senama-Backend-FastApi\services" />
+      <recent name="D:\Senama-Backend-FastApi\app\routes\v1" />
+      <recent name="D:\Senama-Backend-FastApi\schemas\transaction" />
+      <recent name="D:\Senama-Backend-FastApi\app\routes\v1\wallet" />
+      <recent name="D:\Senama-Backend-FastApi\app\routes\v1\collaborations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Senama-Backend-FastApi\services\log" />
+      <recent name="D:\Senama-Backend-FastApi\app\routes\v1" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Senama-Backend-FastApi" type="Python.FastAPI">
+      <option name="file" value="$PROJECT_DIR$/app/main.py" />
+      <module name="Senama-Backend-FastApi" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/.venv/Scripts/python.exe" />
+      <option name="SDK_NAME" value="Python 3.13 (Senama-Backend-FastApi)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66b4b71a-b4b9-4728-a0bf-72ffaa8cac17" name="Changes" comment="" />
+      <created>1741130060782</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741130060782</updated>
+      <workItem from="1741130061858" duration="5251000" />
+      <workItem from="1741171533627" duration="37000" />
+      <workItem from="1741220251499" duration="4712000" />
+      <workItem from="1741252305889" duration="825000" />
+      <workItem from="1741299530152" duration="3421000" />
+      <workItem from="1741373488792" duration="6272000" />
+      <workItem from="1741380680170" duration="6319000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Senama_Backend_FastApi$Senama_Backend_FastApi.coverage" NAME="Senama-Backend-FastApi Coverage Results" MODIFIED="1741386166368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>

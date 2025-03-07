@@ -1,0 +1,41 @@
+from bson import ObjectId
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.pagination import PaginatedResponse
+from schemas.report.response import ReportResponse
+from services.log.log import create_log
+
+
+def get_report(db: Database, report_id: str, user_id: str, ip_address: str) -> ReportResponse:
+    try:
+        report = db.reports.find_one({"_id": ObjectId(report_id)})
+    except ValueError:
+        raise APIException("INVALID_ID", "Invalid report ID format")
+
+    if not report:
+        raise APIException("VENDOR_NOT_FOUND", "Report not found")
+
+    if report["reporter_id"] != user_id:
+        raise APIException("FORBIDDEN", "You can only view your own reports")
+
+    create_log(db, "read", "report", report_id, user_id, None, None, ip_address)
+
+    return map_db_to_response(report, ReportResponse)
+
+
+def get_reports(db: Database, admin_id: str, limit: int, offset: int, ip_address: str) -> PaginatedResponse[
+    ReportResponse]:
+    reports = db.reports.find().skip(offset).limit(limit)
+    total = db.reports.count_documents({})
+    items = [ReportResponse(**report) for report in reports]
+
+    create_log(db, "read", "report", "list", admin_id, None, None, ip_address)
+
+    return PaginatedResponse[ReportResponse](
+        items=items,
+        total=total,
+        limit=limit,
+        offset=offset
+    )
