@@ -60,10 +60,11 @@ from app.routes.v1.users import create as user_create
 from app.routes.v1.users import read as user_read
 from app.routes.v1.users import update as user_update
 from app.routes.v1.users import delete as user_delete
+from app.routes.v1.auth import refresh as auth_refresh
 
 app = FastAPI(title="API Project", version="1.0.0")
 
-# ثبت روت‌های auth
+app.include_router(auth_refresh.router, prefix="/v1/auth", tags=["Auth"])
 app.include_router(auth_otp_send.router, prefix="/v1/auth", tags=["Auth"])
 app.include_router(auth_otp_verify.router, prefix="/v1/auth", tags=["Auth"])
 app.include_router(auth_signup.router, prefix="/v1/auth", tags=["Auth"])

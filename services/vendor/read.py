@@ -26,7 +26,7 @@ def get_vendors(db: Database, user_id: str, limit: int, offset: int, ip_address:
     VendorResponse]:
     vendors = db.vendors.find().skip(offset).limit(limit)
     total = db.vendors.count_documents({})
-    items = [VendorResponse(**vendor) for vendor in vendors]
+    items = [map_db_to_response(vendor, VendorResponse) for vendor in vendors]
 
     create_log(db, "read", "vendor", "list", user_id, None, None, ip_address)
 

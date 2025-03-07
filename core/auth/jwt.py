@@ -20,3 +20,11 @@ def decode_access_token(token: str) -> dict:
         raise APIException("UNAUTHORIZED", "Token has expired")
     except jwt.InvalidTokenError:
         raise APIException("UNAUTHORIZED", "Invalid token")
+
+def decode_refresh_token(token: str) -> dict:
+    try:
+        return jwt.decode(token, settings.REFRESH_SECRET_KEY, algorithms=["HS256"])
+    except jwt.ExpiredSignatureError:
+        raise APIException("UNAUTHORIZED", "Refresh token has expired")
+    except jwt.InvalidTokenError:
+        raise APIException("UNAUTHORIZED", "Invalid refresh token")
