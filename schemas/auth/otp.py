@@ -15,7 +15,9 @@ class OTPSendResponse(BaseModel):
 
 class OTPVerifyRequest(BaseModel):
     phone: str = Field(pattern=r"^\+?[0-9]{10,14}$")
-    otp_code: str = Field(pattern=r"^\d{6}$")
+    otp: str = Field(pattern=r"^\d{6}$")  # ✅ نام درست فیلد
+    role: str  # اضافه کردن نقش
+
 
 
 class OTPVerifyResponse(BaseModel):

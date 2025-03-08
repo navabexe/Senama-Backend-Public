@@ -4,7 +4,6 @@ from pymongo.database import Database
 from core.auth.jwt import create_access_token, create_refresh_token  # اضافه کردن refresh_token
 from core.errors import APIException
 from models.session import Session
-
 def create_session(db: Database, user_id: str, role: str, device_info: str, ip_address: str) -> Session:
     access_token = create_access_token({"sub": user_id, "entity_type": "user", "role": role})
     refresh_token = create_refresh_token({"sub": user_id, "entity_type": "user", "role": role})
@@ -14,11 +13,12 @@ def create_session(db: Database, user_id: str, role: str, device_info: str, ip_a
         refresh_token=refresh_token,
         device_info=device_info,
         ip_address=ip_address,
+        role=role,
         created_at=datetime.now(UTC).isoformat(),
         expires_at=(datetime.now(UTC) + timedelta(days=7)).isoformat()
     )
     result = db.sessions.insert_one(session.model_dump(exclude={"id"}))
-    session.id = str(result.inserted_id)  # اصلاح گرفتن id
+    session.id = str(result.inserted_id)  
     return session
 
 def delete_session(db: Database, refresh_token: str):

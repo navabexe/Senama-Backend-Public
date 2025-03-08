@@ -9,7 +9,7 @@ class Session(BaseModel):
     user_id: str
     access_token: str
     refresh_token: str
-    device_info: str  # از User-Agent
+    device_info: str
     role: str
     ip_address: str
     created_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())

@@ -10,3 +10,4 @@ class SessionResponse(BaseModel):
     ip_address: str
     created_at: str
     expires_at: str
+    role: str

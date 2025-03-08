@@ -34,13 +34,13 @@ def send_otp(db: Database, request: OTPSendRequest, ip_address: str) -> OTPSendR
                 {"$push": {"roles": request.role}}
             )
 
-    otp_code = str(random.randint(100000, 999999))
+    otp = str(random.randint(100000, 999999))
     expires_at = datetime.now(UTC) + timedelta(minutes=5)
 
     db.users.update_one(
         {"phone": request.phone},
-        {"$set": {"otp": otp_code, "otp_expires_at": expires_at.isoformat()}}
+        {"$set": {"otp": otp, "otp_expires_at": expires_at.isoformat()}}
     )
 
     create_log(db, "otp_sent", "auth", str(user["_id"]), None, None, None, ip_address, {"phone": request.phone, "role": request.role})
-    return OTPSendResponse(message=f"OTP sent to {request.phone}", otp=otp_code)
+    return OTPSendResponse(message=f"OTP sent to {request.phone}", otp=otp)
