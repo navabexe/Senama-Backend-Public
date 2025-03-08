@@ -1,5 +1,4 @@
 from typing import Dict, Any, Type, TypeVar
-from bson import ObjectId
 from pydantic import BaseModel
 
 T = TypeVar("T", bound=BaseModel)

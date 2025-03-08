@@ -1,7 +1,7 @@
 from datetime import datetime, UTC
 
 from bson import ObjectId
-from fastapi import Depends, Header
+from fastapi import Depends
 from pymongo.database import Database
 
 from app.dependencies.db import get_db

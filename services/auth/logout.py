@@ -1,13 +1,20 @@
 from pymongo.database import Database
 from core.auth.auth import get_current_user
+from core.auth.jwt import decode_access_token
 from core.auth.blacklist import blacklist_token
 from schemas.auth.response import LogoutResponse
 from core.errors import APIException
+from services.log import create_log
+from bson import ObjectId
+
 
 def logout(db: Database, token: str, ip_address: str) -> LogoutResponse:
     user = get_current_user(token, db)  # رول از توکن چک می‌شه
     entity_id = str(user["_id"])
-    requested_role = token_payload.get("role")  # از توکن می‌گیریم
+
+    # دیکد کردن توکن برای گرفتن رول
+    token_payload = decode_access_token(token)
+    requested_role = token_payload.get("role")  # حالا از payload می‌گیریم
 
     if requested_role == "vendor":
         vendor = db.vendors.find_one({"user_id": ObjectId(entity_id)})

@@ -53,7 +53,7 @@ from app.routes.v1.vendors import create as vendor_create
 from app.routes.v1.vendors import delete as vendor_delete
 from app.routes.v1.vendors import read as vendor_read
 from app.routes.v1.vendors import update as vendor_update
-from app.routes.v1.admin import approve as admin_approve  # اضافه کردن روت ادمین
+from app.routes.v1.admin import approve as admin_approve
 from app.routes.v1.wallet.transactions import create as trans_create
 from app.routes.v1.wallet.transactions import delete as trans_delete
 from app.routes.v1.wallet.transactions import read as trans_read
@@ -71,6 +71,12 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="API Project", version="1.0.0", lifespan=lifespan)
 
+# روت ریشه
+@app.get("/")
+async def root():
+    return {"message": "Welcome to Senama Backend API"}
+
+# روت‌ها
 app.include_router(auth_refresh.router, prefix="/v1/auth", tags=["Auth"])
 app.include_router(auth_otp_send.router, prefix="/v1/auth", tags=["Auth"])
 app.include_router(auth_otp_verify.router, prefix="/v1/auth", tags=["Auth"])
@@ -80,7 +86,7 @@ app.include_router(vendor_create.router, prefix="/v1/vendors", tags=["Vendors"])
 app.include_router(vendor_read.router, prefix="/v1/vendors", tags=["Vendors"])
 app.include_router(vendor_update.router, prefix="/v1/vendors", tags=["Vendors"])
 app.include_router(vendor_delete.router, prefix="/v1/vendors", tags=["Vendors"])
-app.include_router(admin_approve.router, prefix="/v1/admin", tags=["Admin"])  # اضافه کردن روت ادمین
+app.include_router(admin_approve.router, prefix="/v1/admin", tags=["Admin"])
 app.include_router(bc_create.router, prefix="/v1/business_categories", tags=["Business Categories"])
 app.include_router(bc_read.router, prefix="/v1/business_categories", tags=["Business Categories"])
 app.include_router(bc_update.router, prefix="/v1/business_categories", tags=["Business Categories"])
