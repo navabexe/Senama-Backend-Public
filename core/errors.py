@@ -12,13 +12,10 @@ ERRORS = {
 }
 
 
-class APIException(Exception):
-    def __init__(self, error_code: str, detail: str | None = None, status_code: int | None = None):
+from starlette.exceptions import HTTPException
+from typing import Optional
+
+class APIException(HTTPException):
+    def __init__(self, error_code: str, detail: Optional[str] = None, status_code: int = 400):
+        super().__init__(status_code=status_code, detail=detail or error_code)
         self.error_code = error_code
-        self.detail = detail or ERRORS[error_code]["message"]
-        self.status_code = status_code or (
-            400 if error_code.startswith("INVALID") or error_code in ["VENDOR_NOT_FOUND", "FIELD_REQUIRED"]
-            else 403 if error_code == "FORBIDDEN"
-            else 401 if error_code == "UNAUTHORIZED"
-            else 404
-        )

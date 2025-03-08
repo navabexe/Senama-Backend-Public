@@ -8,7 +8,7 @@ from core.validators import Validators
 from models.story import Story
 from schemas.story.create import StoryCreateRequest
 from schemas.story.response import StoryResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_story(db: Database, request: StoryCreateRequest, vendor_id: str, ip_address: str) -> StoryResponse:

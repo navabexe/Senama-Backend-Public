@@ -8,7 +8,7 @@ from core.validators import Validators
 from models.session import Session
 from schemas.session.create import SessionCreateRequest
 from schemas.session.response import SessionResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_session(db: Database, request: SessionCreateRequest, admin_id: str, ip_address: str) -> SessionResponse:

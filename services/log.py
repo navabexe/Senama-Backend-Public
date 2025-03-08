@@ -1,32 +1,44 @@
 from datetime import datetime, UTC
-
 from pymongo.database import Database
+from pydantic import BaseModel, Field
+from typing import Optional, Dict, Any
 
-from models.log import Log
-
+class Log(BaseModel):
+    model_type: str = Field(
+        ...,
+        pattern="^(user|vendor|product|story|category|collaboration|order|notification|block|report|advertisement|transaction|session|auth)$"
+    )
+    model_id: Optional[str] = None
+    action: str = Field(
+        ...,
+        pattern="^(create|update|delete|approve|reject|block|report|charge|withdraw|login|logout|otp_sent|otp_verified|read|search|sponsor)$"
+    )
+    changed_by: Optional[str] = None
+    previous_data: Optional[Dict[str, Any]] = None
+    new_data: Optional[Dict[str, Any]] = None
+    request_data: Optional[Dict[str, Any]] = None
+    timestamp: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
+    ip_address: str
 
 def create_log(
-        db: Database,
-        action: str,
-        model_type: str,
-        model_id: str,
-        changed_by: str,
-        previous_data: dict | None,
-        new_data: dict | None,
-        ip_address: str,
-        request_data: dict | None = None
+    db: Database,
+    action: str,
+    model_type: str,
+    model_id: str | None,
+    changed_by: str | None,
+    previous_data: Dict | None,
+    new_data: Dict | None,
+    ip_address: str,
+    request_data: Dict | None = None
 ):
     log = Log(
         model_type=model_type,
         model_id=model_id,
         action=action,
         changed_by=changed_by,
-        changed_at=datetime.now(UTC).isoformat(),
         previous_data=previous_data,
         new_data=new_data,
-        ip_address=ip_address,
-        request_data=request_data
+        request_data=request_data,
+        ip_address=ip_address
     )
-    result = db.logs.insert_one(log.dict(exclude={"id"}))
-    log.id = str(result.inserted_id)
-    return log
+    db.logs.insert_one(log.model_dump())

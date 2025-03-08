@@ -8,7 +8,7 @@ from core.validators import Validators
 from models.block import Block
 from schemas.block.create import BlockCreateRequest
 from schemas.block.response import BlockResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_block(db: Database, request: BlockCreateRequest, user_id: str, ip_address: str) -> BlockResponse:

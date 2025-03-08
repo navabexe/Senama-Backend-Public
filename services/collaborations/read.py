@@ -1,50 +1,36 @@
-from bson import ObjectId
 from pymongo.database import Database
-
-from core.errors import APIException
-from core.utils.db import map_db_to_response
 from schemas.collaboration.response import CollaborationResponse
 from schemas.pagination import PaginatedResponse
-from services.log.log import create_log
+from services.log import create_log
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from bson import ObjectId
 
 
-def get_collaboration(db: Database, collab_id: str, vendor_id: str, ip_address: str) -> CollaborationResponse:
+def get_collaboration(db: Database, collab_id: str, user_id: str, ip_address: str) -> CollaborationResponse:
     try:
         collaboration = db.collaborations.find_one({"_id": ObjectId(collab_id)})
     except ValueError:
         raise APIException("INVALID_ID", "Invalid collaboration ID format")
 
     if not collaboration:
-        raise APIException("VENDOR_NOT_FOUND", "Collaboration not found")
+        raise APIException("NOT_FOUND", "Collaboration not found")
 
-    if collaboration["requester_id"] != vendor_id and collaboration["target_id"] != vendor_id:
-        raise APIException("FORBIDDEN", "You are not part of this collaboration")
+    if collaboration["vendor_id"] != user_id and collaboration["collaborator_id"] != user_id:
+        raise APIException("FORBIDDEN", "You can only view your own collaborations")
 
-    create_log(db, "read", "collaboration", collab_id, vendor_id, None, None, ip_address)
-
+    create_log(db, "read", "collaboration", collab_id, user_id, None, None, ip_address)
     return map_db_to_response(collaboration, CollaborationResponse)
 
 
-def get_collaborations(db: Database, vendor_id: str, limit: int, offset: int, ip_address: str) -> PaginatedResponse[
+def get_collaborations(db: Database, user_id: str, limit: int, offset: int, ip_address: str) -> PaginatedResponse[
     CollaborationResponse]:
-    collaborations = db.collaborations.find({
-        "$or": [
-            {"requester_id": vendor_id},
-            {"target_id": vendor_id}
-        ]
-    }).skip(offset).limit(limit)
+    query = {"$or": [{"vendor_id": user_id}, {"collaborator_id": user_id}]}
+    collaborations = db.collaborations.find(query).skip(offset).limit(limit)
+    total = db.collaborations.count_documents(query)
+    items = [map_db_to_response(collab, CollaborationResponse) for collab in collaborations]
 
-    total = db.collaborations.count_documents({
-        "$or": [
-            {"requester_id": vendor_id},
-            {"target_id": vendor_id}
-        ]
-    })
-
-    items = [CollaborationResponse(**collab) for collab in collaborations]
-
-    create_log(db, "read", "collaboration", "list", vendor_id, None, None, ip_address)
-
+    create_log(db, "read", "collaboration", "list", user_id, None, None, ip_address)
     return PaginatedResponse[CollaborationResponse](
         items=items,
         total=total,

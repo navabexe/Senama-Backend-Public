@@ -1,10 +1,9 @@
-from bson import ObjectId
 from pymongo.database import Database
-
-from core.errors import APIException
-from core.utils.db import map_db_to_response
 from schemas.advertisement.response import AdvertisementResponse
-from services.log.log import create_log
+from core.errors import APIException
+from services.log import create_log
+from core.utils.db import map_db_to_response
+from bson import ObjectId
 
 
 def delete_advertisement(db: Database, ad_id: str, vendor_id: str, ip_address: str) -> AdvertisementResponse:
@@ -23,5 +22,4 @@ def delete_advertisement(db: Database, ad_id: str, vendor_id: str, ip_address: s
     db.advertisements.delete_one({"_id": ObjectId(ad_id)})
 
     create_log(db, "delete", "advertisement", ad_id, vendor_id, previous_data, None, ip_address)
-
-    return map_db_to_response(advertisement, AdvertisementResponse)
+    return map_db_to_response(previous_data, AdvertisementResponse)

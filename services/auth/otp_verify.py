@@ -9,7 +9,7 @@ from core.errors import APIException
 from core.session import create_session
 from core.validators import Validators
 from schemas.auth.otp import OTPVerifyRequest, OTPVerifyResponse
-from services.log.log import create_log
+from services.log import create_log
 
 logger = logging.getLogger(__name__)
 

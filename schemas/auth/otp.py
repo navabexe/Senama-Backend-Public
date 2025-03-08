@@ -8,7 +8,8 @@ class OTPSendRequest(BaseModel):
 class OTPSendResponse(BaseModel):
     message: str
     otp_sent: bool
-    otp: str | None = None  # فقط برای تست
+    otp_sent: bool = True
+    otp: str
 
 
 class OTPVerifyRequest(BaseModel):

@@ -8,7 +8,7 @@ from core.validators import Validators
 from models.collaboration import Collaboration
 from schemas.collaboration.create import CollaborationCreateRequest
 from schemas.collaboration.response import CollaborationResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_collaboration(db: Database, request: CollaborationCreateRequest, vendor_id: str,

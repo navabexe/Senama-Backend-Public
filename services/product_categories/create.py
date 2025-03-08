@@ -6,7 +6,7 @@ from core.validators import Validators
 from models.product_category import ProductCategory
 from schemas.product_category.create import ProductCategoryCreateRequest
 from schemas.product_category.response import ProductCategoryResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_product_category(db: Database, request: ProductCategoryCreateRequest, admin_id: str,

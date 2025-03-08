@@ -8,7 +8,7 @@ from core.validators import Validators
 from models.transaction import Transaction
 from schemas.transaction.create import TransactionCreateRequest
 from schemas.transaction.response import TransactionResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_transaction(db: Database, request: TransactionCreateRequest, vendor_id: str,

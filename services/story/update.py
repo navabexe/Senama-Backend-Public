@@ -7,7 +7,7 @@ from core.errors import APIException
 from core.utils.db import map_db_to_response
 from schemas.story.response import StoryResponse
 from schemas.story.update import StoryUpdateRequest
-from services.log.log import create_log
+from services.log import create_log
 
 
 def update_story(db: Database, story_id: str, request: StoryUpdateRequest, vendor_id: str,

@@ -5,7 +5,7 @@ from pymongo.database import Database
 from core.utils.pagination import paginate_query
 from schemas.pagination import PaginationParams
 from schemas.vendor.response import VendorResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def search_vendors(

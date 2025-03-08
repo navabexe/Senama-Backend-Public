@@ -4,7 +4,7 @@ from core.errors import APIException
 from core.validators import Validators
 from models.vendor import Vendor
 from schemas.auth.signup import VendorSignupRequest, VendorSignupResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def signup_vendor(db: Database, request: VendorSignupRequest, ip_address: str) -> VendorSignupResponse:

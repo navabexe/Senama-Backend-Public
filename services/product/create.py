@@ -8,7 +8,7 @@ from core.validators import Validators
 from models.product import Product
 from schemas.product.create import ProductCreateRequest
 from schemas.product.response import ProductResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_product(db: Database, request: ProductCreateRequest, vendor_id: str, ip_address: str) -> ProductResponse:

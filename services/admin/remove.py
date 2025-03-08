@@ -4,7 +4,7 @@ from pymongo.database import Database
 from core.errors import APIException
 from core.utils.db import map_db_to_response
 from schemas.vendor.response import VendorResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def remove_vendor(db: Database, vendor_id: str, admin_id: str, ip_address: str) -> VendorResponse:

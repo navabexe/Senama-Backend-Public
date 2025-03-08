@@ -7,7 +7,7 @@ from core.errors import APIException
 from core.utils.pagination import paginate_query
 from schemas.pagination import PaginationParams
 from schemas.product.response import ProductResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def get_vendor_products(

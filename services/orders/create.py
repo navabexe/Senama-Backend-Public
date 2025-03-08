@@ -8,7 +8,7 @@ from core.validators import Validators
 from models.order import Order
 from schemas.order.create import OrderCreateRequest
 from schemas.order.response import OrderResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_order(db: Database, request: OrderCreateRequest, user_id: str, ip_address: str) -> OrderResponse:

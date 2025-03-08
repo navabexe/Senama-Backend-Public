@@ -2,7 +2,7 @@ from pymongo.database import Database
 from schemas.user.create import UserCreateRequest
 from schemas.user.response import UserResponse
 from models.user import User
-from services.log.log import create_log
+from services.log import create_log
 from core.errors import APIException
 from core.utils.hash import hash_password
 from datetime import datetime, UTC

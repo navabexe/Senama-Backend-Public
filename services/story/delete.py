@@ -4,7 +4,7 @@ from pymongo.database import Database
 from core.errors import APIException
 from core.utils.db import map_db_to_response
 from schemas.story.response import StoryResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def delete_story(db: Database, story_id: str, vendor_id: str, ip_address: str) -> StoryResponse:

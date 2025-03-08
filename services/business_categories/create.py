@@ -5,7 +5,7 @@ from core.validators import Validators
 from models.business_category import BusinessCategory
 from schemas.business_category.create import BusinessCategoryCreateRequest
 from schemas.business_category.response import BusinessCategoryResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_business_category(db: Database, request: BusinessCategoryCreateRequest, admin_id: str,

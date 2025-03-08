@@ -8,7 +8,7 @@ from core.validators import Validators
 from models.notification import Notification
 from schemas.notification.create import NotificationCreateRequest
 from schemas.notification.response import NotificationResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_notification(db: Database, request: NotificationCreateRequest, admin_id: str,

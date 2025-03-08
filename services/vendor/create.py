@@ -5,7 +5,7 @@ from core.validators import Validators
 from models.vendor import Vendor
 from schemas.vendor.create import VendorCreateRequest
 from schemas.vendor.response import VendorResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_vendor(db: Database, request: VendorCreateRequest, admin_id: str, ip_address: str) -> VendorResponse:

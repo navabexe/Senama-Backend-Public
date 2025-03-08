@@ -8,7 +8,7 @@ from core.validators import Validators
 from models.report import Report
 from schemas.report.create import ReportCreateRequest
 from schemas.report.response import ReportResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_report(db: Database, request: ReportCreateRequest, user_id: str, ip_address: str) -> ReportResponse:

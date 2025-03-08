@@ -8,7 +8,7 @@ from core.validators import Validators
 from models.advertisement import Advertisement
 from schemas.advertisement.create import AdvertisementCreateRequest
 from schemas.advertisement.response import AdvertisementResponse
-from services.log.log import create_log
+from services.log import create_log
 
 
 def create_advertisement(db: Database, request: AdvertisementCreateRequest, vendor_id: str,
