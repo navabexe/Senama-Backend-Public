@@ -1,7 +1,10 @@
+from typing import List
+
 from pydantic import BaseModel, Field, model_validator
 
-from models.vendor import Location
-
+class Location(BaseModel):
+    lat: float
+    lng: float
 
 class VendorSignupRequest(BaseModel):
     username: str = Field(min_length=3)
@@ -12,7 +15,7 @@ class VendorSignupRequest(BaseModel):
     location: Location
     city: str
     province: str
-    business_category_ids: list[str]
+    business_category_ids: List[str] = Field(min_items=1)
 
     @model_validator(mode='after')
     def check_categories(cls, values):

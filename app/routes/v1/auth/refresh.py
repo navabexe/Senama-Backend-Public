@@ -23,35 +23,29 @@ async def refresh_token_route(
     db: Database = Depends(get_db)
 ):
     try:
-        # رمزگشایی رفرش توکن
         payload = decode_refresh_token(request_data.refresh_token)
         entity_id = payload.get("sub")
         entity_type = payload.get("entity_type", "user")
+        role = payload.get("role")
 
-        if not entity_id:
+        if not entity_id or not role:
             raise APIException("INVALID_TOKEN", "Invalid refresh token payload", status_code=401)
 
-        # پیدا کردن موجودیت (کاربر یا وندور)
-        if entity_type == "user":
-            entity = db.users.find_one({"_id": ObjectId(entity_id)})
-        elif entity_type == "vendor":
-            entity = db.vendors.find_one({"_id": ObjectId(entity_id)})
-        else:
-            raise APIException("INVALID_ID", "Invalid entity type", status_code=400)
+        user = db.users.find_one({"_id": ObjectId(entity_id)})
+        if not user:
+            raise APIException("NOT_FOUND", "User not found", status_code=404)
 
-        if not entity:
-            raise APIException("NOT_FOUND", "Entity not found", status_code=404)
+        if role not in user.get("roles", []):
+            raise APIException("FORBIDDEN", f"User does not have role {role}", status_code=403)
 
-        # تولید توکن دسترسی جدید
-        access_token = create_access_token({"sub": entity_id, "entity_type": entity_type})
-
+        access_token = create_access_token({"sub": entity_id, "entity_type": entity_type, "role": role})
         return TokenResponse(
             message="Token refreshed successfully",
             token=access_token,
-            refresh_token=request_data.refresh_token,  # همون رفرش توکن قبلی رو برمی‌گردونیم
+            refresh_token=request_data.refresh_token,
             entity_id=entity_id,
             entity_type=entity_type,
-            status=entity.get("status", "active")
+            status=user.get("status", "active")
         )
     except APIException as ae:
         raise ae

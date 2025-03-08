@@ -12,7 +12,7 @@ def create_access_token(data: dict) -> str:
 
 def create_refresh_token(data: dict) -> str:
     to_encode = data.copy()
-    expire = datetime.now(UTC) + timedelta(days=7)  # هنوز توی تنظیمات نیست، ثابت گذاشتم
+    expire = datetime.now(UTC) + timedelta(days=7)
     to_encode.update({"exp": expire.timestamp()})
     return jwt.encode(to_encode, settings.REFRESH_SECRET_KEY, algorithm="HS256")
 

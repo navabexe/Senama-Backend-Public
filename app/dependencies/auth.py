@@ -6,8 +6,13 @@ from pymongo.database import Database
 
 from app.dependencies.db import get_db
 from core.auth.jwt import decode_access_token
+from fastapi import Header
 from core.errors import APIException
 
+def get_token(authorization: str = Header(...)) -> str:
+    if not authorization.startswith("Bearer "):
+        raise APIException("UNAUTHORIZED", "Invalid token format", status_code=401)
+    return authorization.split(" ")[1]
 
 async def get_current_user(
         authorization: str = Header(...),

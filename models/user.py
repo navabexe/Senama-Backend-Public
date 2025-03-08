@@ -1,11 +1,10 @@
 from datetime import datetime, UTC
 from typing import List, Optional
-
 from pydantic import BaseModel, Field
-
+from bson import ObjectId
 
 class User(BaseModel):
-    id: Optional[str] = None
+    id: Optional[ObjectId] = None
     phone: str = Field(pattern=r"^\+?[0-9]{10,14}$")
     first_name: Optional[str] = None
     last_name: Optional[str] = None
@@ -22,3 +21,7 @@ class User(BaseModel):
     languages: List[str] = Field(default_factory=list)
     created_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
     updated_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
+
+    class Config:
+        arbitrary_types_allowed = True
+        json_encoders = {ObjectId: str}

@@ -4,15 +4,9 @@ from pydantic import BaseModel, Field
 from typing import Optional, Dict, Any
 
 class Log(BaseModel):
-    model_type: str = Field(
-        ...,
-        pattern="^(user|vendor|product|story|category|collaboration|order|notification|block|report|advertisement|transaction|session|auth)$"
-    )
+    model_type: str = Field(..., pattern="^(user|vendor|product|story|category|collaboration|order|notification|block|report|advertisement|transaction|session|auth)$")
     model_id: Optional[str] = None
-    action: str = Field(
-        ...,
-        pattern="^(create|update|delete|approve|reject|block|report|charge|withdraw|login|logout|otp_sent|otp_verified|read|search|sponsor)$"
-    )
+    action: str = Field(..., pattern="^(create|update|delete|approve|reject|block|report|charge|withdraw|login|logout|otp_sent|otp_verified|read|search|sponsor)$")
     changed_by: Optional[str] = None
     previous_data: Optional[Dict[str, Any]] = None
     new_data: Optional[Dict[str, Any]] = None

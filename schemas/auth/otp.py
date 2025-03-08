@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field
 
 class OTPSendRequest(BaseModel):
     phone: str = Field(pattern=r"^\+?[0-9]{10,14}$")
+    role: str  # "admin", "vendor", "customer"
 
 
 class OTPSendResponse(BaseModel):
