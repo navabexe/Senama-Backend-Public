@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from app.routes.v1.advertisements import create as ad_create
@@ -61,16 +62,21 @@ from app.routes.v1.users import read as user_read
 from app.routes.v1.users import update as user_update
 from app.routes.v1.users import delete as user_delete
 from app.routes.v1.auth import refresh as auth_refresh
+from db.indexes import create_indexes
 
-app = FastAPI(title="API Project", version="1.0.0")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    create_indexes()
+    yield
 
+app = FastAPI(title="API Project", version="1.0.0", lifespan=lifespan)
+
+# ثبت روت‌ها
 app.include_router(auth_refresh.router, prefix="/v1/auth", tags=["Auth"])
 app.include_router(auth_otp_send.router, prefix="/v1/auth", tags=["Auth"])
 app.include_router(auth_otp_verify.router, prefix="/v1/auth", tags=["Auth"])
 app.include_router(auth_signup.router, prefix="/v1/auth", tags=["Auth"])
 app.include_router(auth_logout.router, prefix="/v1/auth", tags=["Auth"])
-
-# ثبت روت‌های بقیه مدل‌ها
 app.include_router(vendor_create.router, prefix="/v1/vendors", tags=["Vendors"])
 app.include_router(vendor_read.router, prefix="/v1/vendors", tags=["Vendors"])
 app.include_router(vendor_update.router, prefix="/v1/vendors", tags=["Vendors"])

@@ -13,5 +13,12 @@ def setup_indexes():
     db.vendors.create_index([("categories", ASCENDING)])
 
 
+def create_indexes():
+    client = get_db_client()
+    db = client.get_default_database()
+    db.users.create_index("phone", unique=True)
+    db.vendors.create_index("phone", unique=True)
+    db.products.create_index("vendor_id")
+
 if __name__ == "__main__":
     setup_indexes()
