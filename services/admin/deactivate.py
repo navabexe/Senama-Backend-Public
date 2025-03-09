@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -23,7 +23,7 @@ def deactivate_vendor(db: Database, vendor_id: str, admin_id: str, ip_address: s
     previous_data = vendor.copy()
     db.vendors.update_one(
         {"_id": ObjectId(vendor_id)},
-        {"$set": {"status": "pending", "updated_by": admin_id, "updated_at": datetime.now(UTC).isoformat()}}
+        {"$set": {"status": "pending", "updated_by": admin_id, "updated_at": datetime.now(timezone.utc).isoformat()}}
     )
 
     updated_vendor = db.vendors.find_one({"_id": ObjectId(vendor_id)})

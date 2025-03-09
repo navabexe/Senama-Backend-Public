@@ -1,4 +1,4 @@
-from datetime import datetime, UTC, timedelta
+from datetime import datetime, timedelta, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -32,7 +32,7 @@ def create_story(db: Database, request: StoryCreateRequest, vendor_id: str, ip_a
         except ValueError:
             raise APIException("INVALID_ID", "Invalid product ID format")
 
-    expires_at = datetime.now(UTC) + timedelta(hours=request.duration)
+    expires_at = datetime.now(timezone.utc) + timedelta(hours=request.duration)
 
     story = Story(
         vendor_id=vendor_id,
@@ -49,7 +49,7 @@ def create_story(db: Database, request: StoryCreateRequest, vendor_id: str, ip_a
         is_highlight=request.is_highlight,
         is_sponsored=request.is_sponsored,
         sponsored_settings=request.sponsored_settings,
-        created_at=datetime.now(UTC).isoformat(),
+        created_at=datetime.now(timezone.utc).isoformat(),
         expires_at=expires_at.isoformat()
     )
 

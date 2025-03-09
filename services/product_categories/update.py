@@ -1,11 +1,13 @@
-from pymongo.database import Database
-from schemas.product_category.update import ProductCategoryUpdateRequest
-from schemas.product_category.response import ProductCategoryResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.db import map_db_to_response
+from datetime import datetime, timezone
+
 from bson import ObjectId
-from datetime import datetime, UTC
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.product_category.response import ProductCategoryResponse
+from schemas.product_category.update import ProductCategoryUpdateRequest
+from services.log import create_log
 
 
 def update_product_category(db: Database, category_id: str, request: ProductCategoryUpdateRequest, admin_id: str,
@@ -19,7 +21,7 @@ def update_product_category(db: Database, category_id: str, request: ProductCate
         raise APIException("NOT_FOUND", "Product category not found")
 
     update_data = request.dict(exclude_unset=True)
-    update_data["updated_at"] = datetime.now(UTC).isoformat()
+    update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     previous_data = category.copy()
     db.product_categories.update_one({"_id": ObjectId(category_id)}, {"$set": update_data})

@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -29,7 +29,7 @@ def create_transaction(db: Database, request: TransactionCreateRequest, vendor_i
         type=request.type,
         amount=request.amount,
         status="pending",
-        created_at=datetime.now(UTC).isoformat()
+        created_at=datetime.now(timezone.utc).isoformat()
     )
 
     result = db.transactions.insert_one(transaction.dict(exclude={"id"}))

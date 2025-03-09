@@ -1,11 +1,13 @@
-from pymongo.database import Database
-from schemas.product.update import ProductUpdateRequest
-from schemas.product.response import ProductResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.db import map_db_to_response
+from datetime import datetime, timezone
+
 from bson import ObjectId
-from datetime import datetime, UTC
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.product.response import ProductResponse
+from schemas.product.update import ProductUpdateRequest
+from services.log import create_log
 
 
 def update_product(db: Database, product_id: str, request: ProductUpdateRequest, vendor_id: str,
@@ -23,7 +25,7 @@ def update_product(db: Database, product_id: str, request: ProductUpdateRequest,
         raise APIException("INVALID_ID", "Invalid status value")
     if "price" in update_data and update_data["price"] <= 0:
         raise APIException("INVALID_AMOUNT", "Price must be positive")
-    update_data["updated_at"] = datetime.now(UTC).isoformat()
+    update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     previous_data = product.copy()
     db.products.update_one({"_id": ObjectId(product_id)}, {"$set": update_data})

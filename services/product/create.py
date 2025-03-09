@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -42,8 +42,8 @@ def create_product(db: Database, request: ProductCreateRequest, vendor_id: str, 
         subcategory_ids=request.subcategory_ids,
         created_by=vendor_id,
         updated_by=vendor_id,
-        created_at=datetime.now(UTC).isoformat(),
-        updated_at=datetime.now(UTC).isoformat()
+        created_at=datetime.now(timezone.utc).isoformat(),
+        updated_at=datetime.now(timezone.utc).isoformat()
     )
 
     result = db.products.insert_one(product.dict(exclude={"id"}))

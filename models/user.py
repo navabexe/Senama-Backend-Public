@@ -1,7 +1,9 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from typing import List, Optional
-from pydantic import BaseModel, Field
+
 from bson import ObjectId
+from pydantic import BaseModel, Field
+
 
 class User(BaseModel):
     id: Optional[ObjectId] = None
@@ -19,8 +21,8 @@ class User(BaseModel):
     birthdate: Optional[str] = None
     gender: Optional[str] = None
     languages: List[str] = Field(default_factory=list)
-    created_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
-    updated_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    updated_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
     class Config:
         arbitrary_types_allowed = True

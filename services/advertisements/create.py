@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -49,7 +49,7 @@ def create_advertisement(db: Database, request: AdvertisementCreateRequest, vend
         targeting=request.targeting,
         duration=request.duration,
         status="active",
-        created_at=datetime.now(UTC).isoformat()
+        created_at=datetime.now(timezone.utc).isoformat()
     )
 
     result = db.advertisements.insert_one(advertisement.dict(exclude={"id"}))

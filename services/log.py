@@ -1,7 +1,9 @@
-from datetime import datetime, UTC
-from pymongo.database import Database
-from pydantic import BaseModel, Field
+from datetime import datetime, timezone
 from typing import Optional, Dict, Any
+
+from pydantic import BaseModel, Field
+from pymongo.database import Database
+
 
 class Log(BaseModel):
     model_type: str = Field(..., pattern="^(user|vendor|product|story|category|collaboration|order|notification|block|report|advertisement|transaction|session|auth)$")
@@ -11,7 +13,7 @@ class Log(BaseModel):
     previous_data: Optional[Dict[str, Any]] = None
     new_data: Optional[Dict[str, Any]] = None
     request_data: Optional[Dict[str, Any]] = None
-    timestamp: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
+    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     ip_address: str
 
 def create_log(

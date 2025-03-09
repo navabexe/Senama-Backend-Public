@@ -1,13 +1,15 @@
 import logging
-from datetime import datetime, UTC
+from datetime import datetime, timezone
+
+from bson import ObjectId
 from pymongo.database import Database
+
 from core.errors import APIException
 from core.session import create_session
 from core.validators import Validators
 from schemas.auth.otp import OTPSendRequest
 from schemas.auth.response import TokenResponse
 from services.log import create_log
-from bson import ObjectId
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +32,7 @@ def verify_otp(db: Database, request: OTPSendRequest, device_info: str, ip_addre
 
     if stored_otp != request.otp:
         raise APIException("INVALID_OTP", "Invalid OTP code", status_code=400)
-    if expires_at < datetime.now(UTC):
+    if expires_at < datetime.now(timezone.utc):
         raise APIException("INVALID_OTP", "OTP code has expired", status_code=400)
 
     # چک وضعیت برای رول وندور

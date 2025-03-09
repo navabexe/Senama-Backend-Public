@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from typing import Optional, Dict
 
 from pydantic import BaseModel, Field
@@ -13,4 +13,4 @@ class Advertisement(BaseModel):
     targeting: Dict  # {city: str, category: str, ...}
     duration: int = Field(gt=0)  # روز
     status: str = "active"  # "active", "paused", "completed"
-    created_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())

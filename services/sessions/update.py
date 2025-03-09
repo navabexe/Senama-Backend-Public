@@ -1,11 +1,13 @@
-from pymongo.database import Database
-from schemas.session.update import SessionUpdateRequest
-from schemas.session.response import SessionResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.db import map_db_to_response
+from datetime import datetime, timezone
+
 from bson import ObjectId
-from datetime import datetime, UTC
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.session.response import SessionResponse
+from schemas.session.update import SessionUpdateRequest
+from services.log import create_log
 
 
 def update_session(db: Database, session_id: str, request: SessionUpdateRequest, user_id: str,
@@ -19,7 +21,7 @@ def update_session(db: Database, session_id: str, request: SessionUpdateRequest,
         raise APIException("NOT_FOUND", "Session not found or not owned by you")
 
     update_data = request.dict(exclude_unset=True)
-    update_data["updated_at"] = datetime.now(UTC).isoformat()
+    update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     previous_data = session.copy()
     db.sessions.update_one({"_id": ObjectId(session_id)}, {"$set": update_data})

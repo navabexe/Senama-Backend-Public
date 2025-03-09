@@ -1,12 +1,13 @@
-from datetime import datetime, UTC, timedelta
+import random
+from datetime import datetime, timedelta, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
+
 from core.errors import APIException
 from core.validators import Validators
 from schemas.auth.otp import OTPSendRequest, OTPSendResponse
 from services.log import create_log
-import random
 
 VALID_ROLES = ["admin", "vendor", "customer"]
 
@@ -23,8 +24,8 @@ def send_otp(db: Database, request: OTPSendRequest, ip_address: str) -> OTPSendR
             "phone": request.phone,
             "roles": [request.role],
             "status": "pending",
-            "created_at": datetime.now(UTC).isoformat(),
-            "updated_at": datetime.now(UTC).isoformat()
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "updated_at": datetime.now(timezone.utc).isoformat()
         }
         db.users.insert_one(user)
     else:
@@ -35,7 +36,7 @@ def send_otp(db: Database, request: OTPSendRequest, ip_address: str) -> OTPSendR
             )
 
     otp = str(random.randint(100000, 999999))
-    expires_at = datetime.now(UTC) + timedelta(minutes=5)
+    expires_at = datetime.now(timezone.utc) + timedelta(minutes=5)
 
     db.users.update_one(
         {"phone": request.phone},

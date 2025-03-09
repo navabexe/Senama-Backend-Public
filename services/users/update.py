@@ -1,12 +1,14 @@
-from pymongo.database import Database
-from schemas.user.update import UserUpdateRequest
-from schemas.user.response import UserResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.hash import hash_password
-from core.utils.db import map_db_to_response
+from datetime import datetime, timezone
+
 from bson import ObjectId
-from datetime import datetime, UTC
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from core.utils.hash import hash_password
+from schemas.user.response import UserResponse
+from schemas.user.update import UserUpdateRequest
+from services.log import create_log
 
 
 def update_user(db: Database, user_id: str, request: UserUpdateRequest, requester_id: str,
@@ -24,7 +26,7 @@ def update_user(db: Database, user_id: str, request: UserUpdateRequest, requeste
     update_data = request.dict(exclude_unset=True)
     if "password" in update_data:
         update_data["password"] = hash_password(update_data["password"])
-    update_data["updated_at"] = datetime.now(UTC).isoformat()
+    update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     previous_data = user.copy()
     db.users.update_one({"_id": ObjectId(user_id)}, {"$set": update_data})

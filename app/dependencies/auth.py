@@ -1,13 +1,14 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 from bson import ObjectId
 from fastapi import Depends
+from fastapi import Header
 from pymongo.database import Database
 
 from app.dependencies.db import get_db
 from core.auth.jwt import decode_access_token
-from fastapi import Header
 from core.errors import APIException
+
 
 def get_token(authorization: str = Header(...)) -> str:
     if not authorization.startswith("Bearer "):
@@ -32,7 +33,7 @@ async def get_current_user(
         raise APIException("UNAUTHORIZED", "Invalid or unknown user")
 
     session = db.sessions.find_one({"access_token": token, "user_id": user_id})
-    if not session or datetime.fromisoformat(session["expires_at"]) < datetime.now(UTC):
+    if not session or datetime.fromisoformat(session["expires_at"]) < datetime.now(timezone.utc):
         raise APIException("UNAUTHORIZED", "Session expired or invalid")
 
     return user_id

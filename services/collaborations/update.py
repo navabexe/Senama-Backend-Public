@@ -1,11 +1,13 @@
-from pymongo.database import Database
-from schemas.collaboration.update import CollaborationUpdateRequest
-from schemas.collaboration.response import CollaborationResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.db import map_db_to_response
+from datetime import datetime, timezone
+
 from bson import ObjectId
-from datetime import datetime, UTC
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.collaboration.response import CollaborationResponse
+from schemas.collaboration.update import CollaborationUpdateRequest
+from services.log import create_log
 
 
 def update_collaboration(db: Database, collab_id: str, request: CollaborationUpdateRequest, user_id: str,
@@ -24,7 +26,7 @@ def update_collaboration(db: Database, collab_id: str, request: CollaborationUpd
     update_data = request.dict(exclude_unset=True)
     if "status" in update_data and update_data["status"] not in ["pending", "accepted", "rejected"]:
         raise APIException("INVALID_ID", "Invalid status value")
-    update_data["updated_at"] = datetime.now(UTC).isoformat()
+    update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     previous_data = collaboration.copy()
     db.collaborations.update_one({"_id": ObjectId(collab_id)}, {"$set": update_data})

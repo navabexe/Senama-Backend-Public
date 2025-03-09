@@ -1,4 +1,4 @@
-from datetime import datetime, UTC, timedelta
+from datetime import datetime, timedelta, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -42,11 +42,11 @@ def update_story(db: Database, story_id: str, request: StoryUpdateRequest, vendo
             raise APIException("INVALID_ID", "Invalid product ID format")
 
     if "duration" in update_data:
-        expires_at = datetime.now(UTC) + timedelta(hours=update_data["duration"])
+        expires_at = datetime.now(timezone.utc) + timedelta(hours=update_data["duration"])
         update_data["expires_at"] = expires_at.isoformat()
 
     previous_data = story.copy()
-    update_data["updated_at"] = datetime.now(UTC).isoformat()
+    update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     db.stories.update_one({"_id": ObjectId(story_id)}, {"$set": update_data})
     updated_story = db.stories.find_one({"_id": ObjectId(story_id)})

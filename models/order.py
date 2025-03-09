@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from typing import Optional, Dict
 
 from pydantic import BaseModel, Field
@@ -12,4 +12,4 @@ class Order(BaseModel):
     quantity: int = Field(gt=0)
     note: Optional[str] = None
     status: str = "new"  # "new", "processing", "completed", "cancelled"
-    created_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())

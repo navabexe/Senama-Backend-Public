@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -33,7 +33,7 @@ def create_block(db: Database, request: BlockCreateRequest, user_id: str, ip_add
     block = Block(
         user_id=user_id,
         blocked_id=request.blocked_id,
-        created_at=datetime.now(UTC).isoformat()
+        created_at=datetime.now(timezone.utc).isoformat()
     )
 
     result = db.blocks.insert_one(block.dict(exclude={"id"}))

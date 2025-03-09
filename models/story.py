@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from typing import Optional, List, Dict
 
 from pydantic import BaseModel, Field
@@ -12,9 +12,9 @@ class Story(BaseModel):
     category: str = Field(min_length=1)  # از تو
     description: str = Field(min_length=1)  # از تو
     external_link: Optional[str] = None
-    created_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     expires_at: Optional[str] = Field(
-        default_factory=lambda: (datetime.now(UTC).replace(hour=23, minute=59, second=59)).isoformat())
+        default_factory=lambda: (datetime.now(timezone.utc).replace(hour=23, minute=59, second=59)).isoformat())
     views_count: int = 0  # از تو
     likes_count: int = 0  # از تو
     shares_count: int = 0  # از تو

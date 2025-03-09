@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -32,7 +32,7 @@ def create_order(db: Database, request: OrderCreateRequest, user_id: str, ip_add
         quantity=request.quantity,
         note=request.note,
         status="new",
-        created_at=datetime.now(UTC).isoformat()
+        created_at=datetime.now(timezone.utc).isoformat()
     )
 
     result = db.orders.insert_one(order.dict(exclude={"id"}))

@@ -1,14 +1,17 @@
-from datetime import datetime, UTC
+from datetime import datetime
+
 from bson import ObjectId
 from pymongo.database import Database
+
+from core.auth.auth import get_admin_user
 from core.errors import APIException
 from core.utils.db import map_db_to_response
 from schemas.vendor.response import VendorResponse
 from services.log import create_log
-from core.auth.auth import get_admin_user  # اضافه کردن
+
 
 def approve_vendor(db: Database, vendor_id: str, token: str, ip_address: str) -> VendorResponse:
-    admin = get_admin_user(token, db)  # چک ادمین با توکن
+    admin = get_admin_user(token, db)
     admin_id = str(admin["_id"])
     try:
         vendor = db.vendors.find_one({"_id": ObjectId(vendor_id)})
@@ -21,7 +24,7 @@ def approve_vendor(db: Database, vendor_id: str, token: str, ip_address: str) ->
     previous_data = vendor.copy()
     db.vendors.update_one(
         {"_id": ObjectId(vendor_id)},
-        {"$set": {"status": "active", "updated_by": admin_id, "updated_at": datetime.now(UTC).isoformat()}}
+        {"$set": {"status": "active", "updated_by": admin_id, "updated_at": datetime.now(timezone.utc).isoformat()}}
     )
     updated_vendor = db.vendors.find_one({"_id": ObjectId(vendor_id)})
     create_log(db, "approve", "vendor", vendor_id, admin_id, previous_data, updated_vendor, ip_address)

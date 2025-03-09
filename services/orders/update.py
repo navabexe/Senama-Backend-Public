@@ -1,11 +1,13 @@
-from pymongo.database import Database
-from schemas.order.update import OrderUpdateRequest
-from schemas.order.response import OrderResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.db import map_db_to_response
+from datetime import datetime, timezone
+
 from bson import ObjectId
-from datetime import datetime, UTC
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.order.response import OrderResponse
+from schemas.order.update import OrderUpdateRequest
+from services.log import create_log
 
 
 def update_order(db: Database, order_id: str, request: OrderUpdateRequest, user_id: str,
@@ -25,7 +27,7 @@ def update_order(db: Database, order_id: str, request: OrderUpdateRequest, user_
     if "status" in update_data and update_data["status"] not in ["pending", "confirmed", "shipped", "delivered",
                                                                  "cancelled"]:
         raise APIException("INVALID_ID", "Invalid status value")
-    update_data["updated_at"] = datetime.now(UTC).isoformat()
+    update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     previous_data = order.copy()
     db.orders.update_one({"_id": ObjectId(order_id)}, {"$set": update_data})

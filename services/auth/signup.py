@@ -1,10 +1,13 @@
+from datetime import datetime, timezone
+
+from bson import ObjectId
 from pymongo.database import Database
+
 from core.errors import APIException
 from core.validators import Validators
 from schemas.auth.signup import VendorSignupRequest, VendorSignupResponse
 from services.log import create_log
-from bson import ObjectId
-from datetime import datetime, UTC
+
 
 def signup_vendor(db: Database, request: VendorSignupRequest, ip_address: str) -> VendorSignupResponse:
     Validators.validate_phone(request.owner_phone)
@@ -17,8 +20,8 @@ def signup_vendor(db: Database, request: VendorSignupRequest, ip_address: str) -
             "phone": request.owner_phone,
             "roles": ["vendor"],
             "status": "pending",
-            "created_at": datetime.now(UTC).isoformat(),
-            "updated_at": datetime.now(UTC).isoformat()
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "updated_at": datetime.now(timezone.utc).isoformat()
         }
         db.users.insert_one(user)
     else:
@@ -44,8 +47,8 @@ def signup_vendor(db: Database, request: VendorSignupRequest, ip_address: str) -
         "business_category_ids": request.business_category_ids,
         "status": "pending",
         "created_by": "self",
-        "created_at": datetime.now(UTC).isoformat(),
-        "updated_at": datetime.now(UTC).isoformat()
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "updated_at": datetime.now(timezone.utc).isoformat()
     }
     result = db.vendors.insert_one(vendor)
     vendor_id = str(result.inserted_id)

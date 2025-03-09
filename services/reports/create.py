@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -37,7 +37,7 @@ def create_report(db: Database, request: ReportCreateRequest, user_id: str, ip_a
         reason=request.reason,
         note=request.note,
         status="pending",
-        created_at=datetime.now(UTC).isoformat()
+        created_at=datetime.now(timezone.utc).isoformat()
     )
 
     result = db.reports.insert_one(report.dict(exclude={"id"}))

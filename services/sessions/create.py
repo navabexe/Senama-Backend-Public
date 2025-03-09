@@ -1,4 +1,4 @@
-from datetime import datetime, UTC, timedelta
+from datetime import datetime, timedelta, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -29,7 +29,7 @@ def create_session(db: Database, request: SessionCreateRequest, admin_id: str, i
     if existing_session:
         raise APIException("FORBIDDEN", "Access token already in use")
 
-    expires_at = datetime.now(UTC) + timedelta(days=7)  # پیش‌فرض ۷ روز
+    expires_at = datetime.now(timezone.utc) + timedelta(days=7)  # پیش‌فرض ۷ روز
 
     session = Session(
         user_id=request.user_id,
@@ -37,7 +37,7 @@ def create_session(db: Database, request: SessionCreateRequest, admin_id: str, i
         refresh_token=request.refresh_token,
         device_info=request.device_info,
         ip_address=request.ip_address,
-        created_at=datetime.now(UTC).isoformat(),
+        created_at=datetime.now(timezone.utc).isoformat(),
         expires_at=expires_at.isoformat()
     )
 

@@ -1,8 +1,11 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from typing import Optional, List, Dict
-from pydantic import BaseModel, Field
+
 from bson import ObjectId
+from pydantic import BaseModel, Field
+
 from models.common import Branch, Location, BusinessDetail, SocialLink, MessengerLink
+
 
 class Vendor(BaseModel):
     id: Optional[ObjectId] = None
@@ -33,9 +36,9 @@ class Vendor(BaseModel):
     following_count: int = 0
     business_category_ids: List[str] = Field(min_items=1)
     created_by: str
-    created_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     updated_by: Optional[str] = None
-    updated_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
+    updated_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     profile_picture: Optional[str] = None
     gender: Optional[str] = None
     birth_date: Optional[str] = None

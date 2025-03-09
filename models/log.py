@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Optional, Dict
 
 from pydantic import BaseModel, Field
@@ -12,7 +12,7 @@ class Log(BaseModel):
     action: str = Field(
         pattern=r"^(create|update|delete|approve|reject|block|report|charge|withdraw|login|logout|otp_sent|read|search|sponsor)$")
     changed_by: str
-    changed_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
+    changed_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     previous_data: Optional[Dict] = None
     new_data: Optional[Dict] = None
     ip_address: str

@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from typing import Optional
 
 from pydantic import BaseModel, Field
@@ -12,5 +12,5 @@ class Session(BaseModel):
     device_info: str
     role: str
     ip_address: str
-    created_at: str = Field(default_factory=lambda: datetime.now(UTC).isoformat())
-    expires_at: str = Field(default_factory=lambda: datetime.now(UTC).replace(day=7).isoformat())
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    expires_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).replace(day=7).isoformat())

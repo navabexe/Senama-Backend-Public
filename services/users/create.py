@@ -1,11 +1,13 @@
+from datetime import datetime, timezone
+
 from pymongo.database import Database
-from schemas.user.create import UserCreateRequest
-from schemas.user.response import UserResponse
-from models.user import User
-from services.log import create_log
+
 from core.errors import APIException
 from core.utils.hash import hash_password
-from datetime import datetime, UTC
+from models.user import User
+from schemas.user.create import UserCreateRequest
+from schemas.user.response import UserResponse
+from services.log import create_log
 
 
 def create_user(db: Database, request: UserCreateRequest, ip_address: str) -> UserResponse:
@@ -20,8 +22,8 @@ def create_user(db: Database, request: UserCreateRequest, ip_address: str) -> Us
         password=hash_password(request.password) if request.password else None,
         roles=["user"],
         status="active",
-        created_at=datetime.now(UTC).isoformat(),
-        updated_at=datetime.now(UTC).isoformat()
+        created_at=datetime.now(timezone.utc).isoformat(),
+        updated_at=datetime.now(timezone.utc).isoformat()
     )
 
     result = db.users.insert_one(user.dict(exclude={"id"}))

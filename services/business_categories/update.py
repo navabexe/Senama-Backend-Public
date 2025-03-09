@@ -1,11 +1,13 @@
-from pymongo.database import Database
-from schemas.business_category.update import BusinessCategoryUpdateRequest
-from schemas.business_category.response import BusinessCategoryResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.db import map_db_to_response
+from datetime import datetime, timezone
+
 from bson import ObjectId
-from datetime import datetime, UTC
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.business_category.response import BusinessCategoryResponse
+from schemas.business_category.update import BusinessCategoryUpdateRequest
+from services.log import create_log
 
 
 def update_business_category(db: Database, category_id: str, request: BusinessCategoryUpdateRequest, admin_id: str,
@@ -19,7 +21,7 @@ def update_business_category(db: Database, category_id: str, request: BusinessCa
         raise APIException("VENDOR_NOT_FOUND", "Business category not found")
 
     update_data = request.dict(exclude_unset=True)
-    update_data["updated_at"] = datetime.now(UTC).isoformat()
+    update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     previous_data = category.copy()
     db.business_categories.update_one({"_id": ObjectId(category_id)}, {"$set": update_data})

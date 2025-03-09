@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 from bson import ObjectId
 from pymongo.database import Database
@@ -39,7 +39,7 @@ def create_collaboration(db: Database, request: CollaborationCreateRequest, vend
         requester_id=vendor_id,
         target_id=request.target_id,
         status="pending",
-        created_at=datetime.now(UTC).isoformat()
+        created_at=datetime.now(timezone.utc).isoformat()
     )
 
     result = db.collaborations.insert_one(collaboration.dict(exclude={"id"}))
