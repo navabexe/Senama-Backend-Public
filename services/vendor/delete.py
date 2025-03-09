@@ -1,9 +1,10 @@
-from pymongo.database import Database
-from schemas.vendor.response import DeleteVendorResponse
-from core.errors import APIException
-from services.log import create_log
-from core.auth.auth import get_admin_user
 from bson import ObjectId
+from pymongo.database import Database
+
+from core.auth.auth import get_admin_user
+from core.errors import APIException
+from schemas.vendor.response import DeleteVendorResponse
+from services.log import create_log
 
 
 def delete_vendor(db: Database, vendor_id: str, token: str, ip_address: str) -> DeleteVendorResponse:

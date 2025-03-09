@@ -40,10 +40,10 @@ def create_report(db: Database, request: ReportCreateRequest, user_id: str, ip_a
         created_at=datetime.now(timezone.utc).isoformat()
     )
 
-    result = db.reports.insert_one(report.dict(exclude={"id"}))
+    result = db.reports.insert_one(report.model_dump(exclude={"id"}))
     report_id = str(result.inserted_id)
 
-    create_log(db, "create", "report", report_id, user_id, None, report.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "report", report_id, user_id, None, report.model_dump(exclude={"id"}), ip_address)
 
     return ReportResponse(
         id=report_id,

@@ -1,13 +1,14 @@
 # app/routes/v1/auth/otp_verify.py
 from fastapi import APIRouter, Depends, Request
 from pymongo.database import Database
+from slowapi import Limiter
+from slowapi.util import get_remote_address
+
 from app.dependencies.db import get_db
+from core.errors import APIException  # اضافه کردن مدیریت خطا
 from schemas.auth.otp import OTPVerifyRequest
 from schemas.auth.response import TokenResponse
 from services.auth import otp_verify as service_otp_verify
-from slowapi import Limiter
-from slowapi.util import get_remote_address
-from core.errors import APIException  # اضافه کردن مدیریت خطا
 
 router = APIRouter()
 limiter = Limiter(key_func=get_remote_address)

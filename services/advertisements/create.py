@@ -52,10 +52,10 @@ def create_advertisement(db: Database, request: AdvertisementCreateRequest, vend
         created_at=datetime.now(timezone.utc).isoformat()
     )
 
-    result = db.advertisements.insert_one(advertisement.dict(exclude={"id"}))
+    result = db.advertisements.insert_one(advertisement.model_dump(exclude={"id"}))
     ad_id = str(result.inserted_id)
 
-    create_log(db, "create", "advertisement", ad_id, vendor_id, None, advertisement.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "advertisement", ad_id, vendor_id, None, advertisement.model_dump(exclude={"id"}), ip_address)
 
     return AdvertisementResponse(
         id=ad_id,

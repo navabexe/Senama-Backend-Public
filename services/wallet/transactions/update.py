@@ -20,7 +20,7 @@ def update_transaction(db: Database, transaction_id: str, request: TransactionUp
     if not transaction:
         raise APIException("NOT_FOUND", "Transaction not found")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     if "status" in update_data and update_data["status"] not in ["pending", "completed", "failed"]:
         raise APIException("INVALID_ID", "Invalid status value")
     update_data["updated_at"] = datetime.now(timezone.utc).isoformat()

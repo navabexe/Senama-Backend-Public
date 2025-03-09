@@ -1,13 +1,14 @@
+from bson import ObjectId
 from fastapi import APIRouter, Depends, Request
+from pydantic import BaseModel
 from pymongo.database import Database
-from app.dependencies.db import get_db
-from schemas.auth.response import TokenResponse
-from core.auth.jwt import create_access_token, decode_refresh_token
-from core.errors import APIException
 from slowapi import Limiter
 from slowapi.util import get_remote_address
-from pydantic import BaseModel
-from bson import ObjectId
+
+from app.dependencies.db import get_db
+from core.auth.jwt import create_access_token, decode_refresh_token
+from core.errors import APIException
+from schemas.auth.response import TokenResponse
 
 router = APIRouter()
 limiter = Limiter(key_func=get_remote_address)

@@ -1,9 +1,10 @@
-from pymongo.database import Database
-from schemas.user.response import UserResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.db import map_db_to_response
 from bson import ObjectId
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.user.response import UserResponse
+from services.log import create_log
 
 
 def delete_user(db: Database, user_id: str, admin_id: str, ip_address: str) -> UserResponse:

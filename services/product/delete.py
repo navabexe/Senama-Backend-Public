@@ -1,9 +1,10 @@
-from pymongo.database import Database
-from schemas.product.response import ProductResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.db import map_db_to_response
 from bson import ObjectId
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.product.response import ProductResponse
+from services.log import create_log
 
 
 def delete_product(db: Database, product_id: str, vendor_id: str, ip_address: str) -> ProductResponse:

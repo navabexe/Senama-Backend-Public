@@ -1,11 +1,11 @@
-from pymongo.database import Database
-from schemas.advertisement.update import AdvertisementUpdateRequest
-from schemas.advertisement.response import AdvertisementResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.db import map_db_to_response
 from bson import ObjectId
-from datetime import datetime, UTC
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.advertisement.response import AdvertisementResponse
+from schemas.advertisement.update import AdvertisementUpdateRequest
+from services.log import create_log
 
 
 def update_advertisement(db: Database, ad_id: str, request: AdvertisementUpdateRequest, vendor_id: str,
@@ -18,7 +18,7 @@ def update_advertisement(db: Database, ad_id: str, request: AdvertisementUpdateR
     if not advertisement:
         raise APIException("VENDOR_NOT_FOUND", "Advertisement not found or not owned by you")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     if "type" in update_data and update_data["type"] not in ["product", "story", "profile"]:
         raise APIException("INVALID_ID", "Invalid advertisement type")
     if "budget" in update_data and update_data["budget"] <= 0:

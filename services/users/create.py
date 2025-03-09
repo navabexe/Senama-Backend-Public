@@ -26,10 +26,10 @@ def create_user(db: Database, request: UserCreateRequest, ip_address: str) -> Us
         updated_at=datetime.now(timezone.utc).isoformat()
     )
 
-    result = db.users.insert_one(user.dict(exclude={"id"}))
+    result = db.users.insert_one(user.model_dump(exclude={"id"}))
     user_id = str(result.inserted_id)
 
-    create_log(db, "create", "user", user_id, user_id, None, user.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "user", user_id, user_id, None, user.model_dump(exclude={"id"}), ip_address)
 
     return UserResponse(
         id=user_id,

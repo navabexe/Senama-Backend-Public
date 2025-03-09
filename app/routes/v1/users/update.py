@@ -1,12 +1,13 @@
 from fastapi import APIRouter, Depends, Request
 from pymongo.database import Database
-from app.dependencies.db import get_db
-from app.dependencies.auth import get_current_user
-from schemas.user.update import UserUpdateRequest
-from schemas.user.response import UserResponse
-from services.users.update import update_user
 from slowapi import Limiter
 from slowapi.util import get_remote_address
+
+from app.dependencies.auth import get_current_user
+from app.dependencies.db import get_db
+from schemas.user.response import UserResponse
+from schemas.user.update import UserUpdateRequest
+from services.users.update import update_user
 
 router = APIRouter()
 limiter = Limiter(key_func=get_remote_address)

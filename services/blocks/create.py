@@ -36,10 +36,10 @@ def create_block(db: Database, request: BlockCreateRequest, user_id: str, ip_add
         created_at=datetime.now(timezone.utc).isoformat()
     )
 
-    result = db.blocks.insert_one(block.dict(exclude={"id"}))
+    result = db.blocks.insert_one(block.model_dump(exclude={"id"}))
     block_id = str(result.inserted_id)
 
-    create_log(db, "create", "block", block_id, user_id, None, block.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "block", block_id, user_id, None, block.model_dump(exclude={"id"}), ip_address)
 
     return BlockResponse(
         id=block_id,

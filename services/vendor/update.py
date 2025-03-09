@@ -23,7 +23,7 @@ def update_vendor(db: Database, vendor_id: str, request: VendorUpdateRequest, us
     if str(vendor["_id"]) != user_id:
         raise APIException("FORBIDDEN", "You can only update your own vendor profile")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     if "status" in update_data and update_data["status"] not in ["active", "inactive", "pending"]:
         raise APIException("INVALID_ID", "Invalid status value")
     update_data["updated_at"] = datetime.now(timezone.utc).isoformat()

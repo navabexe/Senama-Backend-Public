@@ -1,7 +1,9 @@
+from bson import ObjectId
 from pymongo.database import Database
+
 from core.auth.jwt import decode_access_token
 from core.errors import APIException
-from bson import ObjectId
+
 
 def get_current_user(token: str, db: Database) -> dict:
     payload = decode_access_token(token)

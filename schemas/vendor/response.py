@@ -1,6 +1,8 @@
-from pydantic import BaseModel
 from typing import Optional, List, Dict
+
 from bson import ObjectId
+from pydantic import BaseModel
+
 
 class VendorResponse(BaseModel):
     id: str

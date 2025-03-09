@@ -1,5 +1,8 @@
 from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
+
+from app.routes.v1.admin import approve as admin_approve
 from app.routes.v1.advertisements import create as ad_create
 from app.routes.v1.advertisements import delete as ad_delete
 from app.routes.v1.advertisements import read as ad_read
@@ -7,8 +10,8 @@ from app.routes.v1.advertisements import update as ad_update
 from app.routes.v1.auth import logout as auth_logout
 from app.routes.v1.auth import otp_send as auth_otp_send
 from app.routes.v1.auth import otp_verify as auth_otp_verify
-from app.routes.v1.auth import signup as auth_signup
 from app.routes.v1.auth import refresh as auth_refresh
+from app.routes.v1.auth import signup as auth_signup
 from app.routes.v1.blocks import create as block_create
 from app.routes.v1.blocks import delete as block_delete
 from app.routes.v1.blocks import read as block_read
@@ -49,20 +52,20 @@ from app.routes.v1.stories import create as story_create
 from app.routes.v1.stories import delete as story_delete
 from app.routes.v1.stories import read as story_read
 from app.routes.v1.stories import update as story_update
+from app.routes.v1.users import create as user_create
+from app.routes.v1.users import delete as user_delete
+from app.routes.v1.users import read as user_read
+from app.routes.v1.users import update as user_update
 from app.routes.v1.vendors import create as vendor_create
 from app.routes.v1.vendors import delete as vendor_delete
 from app.routes.v1.vendors import read as vendor_read
 from app.routes.v1.vendors import update as vendor_update
-from app.routes.v1.admin import approve as admin_approve
 from app.routes.v1.wallet.transactions import create as trans_create
 from app.routes.v1.wallet.transactions import delete as trans_delete
 from app.routes.v1.wallet.transactions import read as trans_read
 from app.routes.v1.wallet.transactions import update as trans_update
-from app.routes.v1.users import create as user_create
-from app.routes.v1.users import read as user_read
-from app.routes.v1.users import update as user_update
-from app.routes.v1.users import delete as user_delete
 from db.indexes import create_indexes
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

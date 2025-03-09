@@ -20,7 +20,7 @@ def update_report(db: Database, report_id: str, request: ReportUpdateRequest, us
     if not report:
         raise APIException("NOT_FOUND", "Report not found or not owned by you")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     if "status" in update_data and update_data["status"] not in ["pending", "resolved", "dismissed"]:
         raise APIException("INVALID_ID", "Invalid status value")
     update_data["updated_at"] = datetime.now(timezone.utc).isoformat()

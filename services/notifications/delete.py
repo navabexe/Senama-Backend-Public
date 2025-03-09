@@ -1,9 +1,10 @@
-from pymongo.database import Database
-from schemas.notification.response import NotificationResponse
-from core.errors import APIException
-from services.log import create_log
-from core.utils.db import map_db_to_response
 from bson import ObjectId
+from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
+from schemas.notification.response import NotificationResponse
+from services.log import create_log
 
 
 def delete_notification(db: Database, notif_id: str, user_id: str, ip_address: str) -> NotificationResponse:

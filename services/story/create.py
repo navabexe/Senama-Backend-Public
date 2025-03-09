@@ -53,10 +53,10 @@ def create_story(db: Database, request: StoryCreateRequest, vendor_id: str, ip_a
         expires_at=expires_at.isoformat()
     )
 
-    result = db.stories.insert_one(story.dict(exclude={"id"}))
+    result = db.stories.insert_one(story.model_dump(exclude={"id"}))
     story_id = str(result.inserted_id)
 
-    create_log(db, "create", "story", story_id, vendor_id, None, story.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "story", story_id, vendor_id, None, story.model_dump(exclude={"id"}), ip_address)
 
     return StoryResponse(
         id=story_id,

@@ -32,10 +32,10 @@ def create_transaction(db: Database, request: TransactionCreateRequest, vendor_i
         created_at=datetime.now(timezone.utc).isoformat()
     )
 
-    result = db.transactions.insert_one(transaction.dict(exclude={"id"}))
+    result = db.transactions.insert_one(transaction.model_dump(exclude={"id"}))
     trans_id = str(result.inserted_id)
 
-    create_log(db, "create", "transaction", trans_id, vendor_id, None, transaction.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "transaction", trans_id, vendor_id, None, transaction.model_dump(exclude={"id"}), ip_address)
 
     return TransactionResponse(
         id=trans_id,

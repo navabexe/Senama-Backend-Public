@@ -12,8 +12,10 @@ ERRORS = {
 }
 
 
-from starlette.exceptions import HTTPException
 from typing import Optional
+
+from starlette.exceptions import HTTPException
+
 
 class APIException(HTTPException):
     def __init__(self, error_code: str, detail: Optional[str] = None, status_code: int = 400):

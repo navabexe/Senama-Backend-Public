@@ -20,7 +20,7 @@ def update_product(db: Database, product_id: str, request: ProductUpdateRequest,
     if not product:
         raise APIException("NOT_FOUND", "Product not found or not owned by you")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     if "status" in update_data and update_data["status"] not in ["active", "inactive"]:
         raise APIException("INVALID_ID", "Invalid status value")
     if "price" in update_data and update_data["price"] <= 0:

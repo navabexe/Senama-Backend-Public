@@ -2,6 +2,7 @@ from typing import List
 
 from pydantic import BaseModel, Field, model_validator
 
+
 class Location(BaseModel):
     lat: float
     lng: float

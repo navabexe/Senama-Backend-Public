@@ -20,7 +20,7 @@ def update_product_category(db: Database, category_id: str, request: ProductCate
     if not category:
         raise APIException("NOT_FOUND", "Product category not found")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     previous_data = category.copy()

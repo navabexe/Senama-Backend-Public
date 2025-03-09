@@ -20,7 +20,7 @@ def update_session(db: Database, session_id: str, request: SessionUpdateRequest,
     if not session:
         raise APIException("NOT_FOUND", "Session not found or not owned by you")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     previous_data = session.copy()

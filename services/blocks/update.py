@@ -20,7 +20,7 @@ def update_block(db: Database, block_id: str, request: BlockUpdateRequest, user_
     if not block:
         raise APIException("NOT_FOUND", "Block not found or not owned by you")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
 
     previous_data = block.copy()

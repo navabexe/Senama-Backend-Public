@@ -23,7 +23,7 @@ def update_collaboration(db: Database, collab_id: str, request: CollaborationUpd
     if collaboration["vendor_id"] != user_id and collaboration["collaborator_id"] != user_id:
         raise APIException("FORBIDDEN", "You can only update your own collaborations")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     if "status" in update_data and update_data["status"] not in ["pending", "accepted", "rejected"]:
         raise APIException("INVALID_ID", "Invalid status value")
     update_data["updated_at"] = datetime.now(timezone.utc).isoformat()

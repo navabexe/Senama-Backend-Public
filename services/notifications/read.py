@@ -1,10 +1,11 @@
+from bson import ObjectId
 from pymongo.database import Database
+
+from core.errors import APIException
+from core.utils.db import map_db_to_response
 from schemas.notification.response import NotificationResponse
 from schemas.pagination import PaginatedResponse
 from services.log import create_log
-from core.errors import APIException
-from core.utils.db import map_db_to_response
-from bson import ObjectId
 
 
 def get_notification(db: Database, notif_id: str, user_id: str, ip_address: str) -> NotificationResponse:

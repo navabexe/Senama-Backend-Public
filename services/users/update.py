@@ -23,7 +23,7 @@ def update_user(db: Database, user_id: str, request: UserUpdateRequest, requeste
     if user_id != requester_id:
         raise APIException("FORBIDDEN", "You can only update your own profile")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     if "password" in update_data:
         update_data["password"] = hash_password(update_data["password"])
     update_data["updated_at"] = datetime.now(timezone.utc).isoformat()

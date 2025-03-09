@@ -4,60 +4,83 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66b4b71a-b4b9-4728-a0bf-72ffaa8cac17" name="Changes" comment="last change">
-      <change afterPath="$PROJECT_DIR$/add_admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Senama-Backend-FastApi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Senama-Backend-FastApi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="66b4b71a-b4b9-4728-a0bf-72ffaa8cac17" name="Changes" comment="Final change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dependencies/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/dependencies/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/middleware/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/middleware/logging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/auth/blacklist.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/auth/blacklist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/auth/jwt.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/auth/jwt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/add_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/v1/admin/approve.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/v1/admin/approve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/v1/auth/otp_send.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/v1/auth/otp_send.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/v1/auth/otp_verify.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/v1/auth/otp_verify.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/v1/auth/refresh.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/v1/auth/refresh.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/v1/auth/signup.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/v1/auth/signup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/v1/users/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/v1/users/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/v1/users/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/v1/users/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/v1/users/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/v1/users/read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/v1/users/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/v1/users/update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/v1/vendors/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/v1/vendors/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/auth/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/auth/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/errors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/session.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/advertisement.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/advertisement.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/block.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/block.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/business_category.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/business_category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/collaboration.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/collaboration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/utils/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/utils/db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/notification.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/notification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/product_category.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/product_category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/report.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/report.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/session.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/story.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/story.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/transaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/transaction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/vendor.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/vendor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/auth/signup.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/auth/signup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/vendor/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/vendor/response.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/admin/approve.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin/approve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/admin/deactivate.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin/deactivate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/advertisements/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/advertisements/create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth/otp_send.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth/otp_send.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth/otp_verify.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth/otp_verify.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth/signup.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth/signup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/advertisements/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/advertisements/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/advertisements/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/advertisements/read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/advertisements/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/advertisements/update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth/logout.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth/logout.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/blocks/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/blocks/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/blocks/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/blocks/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/blocks/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/blocks/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/blocks/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/blocks/update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/business_categories/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/business_categories/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/business_categories/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/business_categories/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/business_categories/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/business_categories/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/business_categories/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/business_categories/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/collaborations/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/collaborations/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/collaborations/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/collaborations/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/collaborations/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/collaborations/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/collaborations/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/collaborations/update.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/notifications/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/notifications/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/notifications/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/notifications/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/notifications/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/notifications/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/notifications/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/notifications/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/orders/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/orders/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/orders/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/orders/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/orders/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/orders/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/orders/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/orders/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/product/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/product/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/product/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/product/update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product_categories/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/product_categories/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product_categories/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/product_categories/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product_categories/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/product_categories/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product_categories/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/product_categories/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/reports/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/reports/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/reports/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/reports/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/reports/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/reports/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/reports/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/reports/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/sessions/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/sessions/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/sessions/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/sessions/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/sessions/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/sessions/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/sessions/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/sessions/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/story/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/story/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/story/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/story/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/story/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/story/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/users/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/users/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/users/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/users/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/users/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/users/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/users/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/users/update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/vendor/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/vendor/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/vendor/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/vendor/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/vendor/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/vendor/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/wallet/transactions/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/wallet/transactions/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/wallet/transactions/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/wallet/transactions/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/wallet/transactions/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/wallet/transactions/read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/wallet/transactions/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/wallet/transactions/update.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +217,7 @@
       <workItem from="1741469820920" duration="1779000" />
       <workItem from="1741471793739" duration="1909000" />
       <workItem from="1741474119164" duration="308000" />
-      <workItem from="1741557181524" duration="1282000" />
+      <workItem from="1741557181524" duration="3281000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed All">
       <option name="closed" value="true" />
@@ -220,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741470390996</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Final change">
+      <option name="closed" value="true" />
+      <created>1741558692987</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741558692987</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,10 +260,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed All" />
     <MESSAGE value="last change" />
-    <option name="LAST_COMMIT_MESSAGE" value="last change" />
+    <MESSAGE value="Final change" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final change" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/navab$Senama_Backend_FastApi.coverage" NAME="Senama-Backend-FastApi Coverage Results" MODIFIED="1741558160225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/navab$Senama_Backend_FastApi.coverage" NAME="Senama-Backend-FastApi Coverage Results" MODIFIED="1741559883370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Senama_Backend_FastApi$Senama_Backend_FastApi.coverage" NAME="Senama-Backend-FastApi Coverage Results" MODIFIED="1741473615905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

@@ -35,10 +35,10 @@ def create_order(db: Database, request: OrderCreateRequest, user_id: str, ip_add
         created_at=datetime.now(timezone.utc).isoformat()
     )
 
-    result = db.orders.insert_one(order.dict(exclude={"id"}))
+    result = db.orders.insert_one(order.model_dump(exclude={"id"}))
     order_id = str(result.inserted_id)
 
-    create_log(db, "create", "order", order_id, user_id, None, order.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "order", order_id, user_id, None, order.model_dump(exclude={"id"}), ip_address)
 
     return OrderResponse(
         id=order_id,

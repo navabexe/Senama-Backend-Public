@@ -41,10 +41,10 @@ def create_session(db: Database, request: SessionCreateRequest, admin_id: str, i
         expires_at=expires_at.isoformat()
     )
 
-    result = db.sessions.insert_one(session.dict(exclude={"id"}))
+    result = db.sessions.insert_one(session.model_dump(exclude={"id"}))
     session_id = str(result.inserted_id)
 
-    create_log(db, "create", "session", session_id, admin_id, None, session.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "session", session_id, admin_id, None, session.model_dump(exclude={"id"}), ip_address)
 
     return SessionResponse(
         id=session_id,

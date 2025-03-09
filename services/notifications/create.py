@@ -32,10 +32,10 @@ def create_notification(db: Database, request: NotificationCreateRequest, admin_
         created_at=datetime.now(timezone.utc).isoformat()
     )
 
-    result = db.notifications.insert_one(notification.dict(exclude={"id"}))
+    result = db.notifications.insert_one(notification.model_dump(exclude={"id"}))
     notif_id = str(result.inserted_id)
 
-    create_log(db, "create", "notification", notif_id, admin_id, None, notification.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "notification", notif_id, admin_id, None, notification.model_dump(exclude={"id"}), ip_address)
 
     return NotificationResponse(
         id=notif_id,

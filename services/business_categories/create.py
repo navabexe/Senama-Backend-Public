@@ -21,10 +21,10 @@ def create_business_category(db: Database, request: BusinessCategoryCreateReques
         image_url=request.image_url
     )
 
-    result = db.business_categories.insert_one(category.dict(exclude={"id"}))
+    result = db.business_categories.insert_one(category.model_dump(exclude={"id"}))
     category_id = str(result.inserted_id)
 
-    create_log(db, "create", "category", category_id, admin_id, None, category.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "category", category_id, admin_id, None, category.model_dump(exclude={"id"}), ip_address)
 
     return BusinessCategoryResponse(
         id=category_id,

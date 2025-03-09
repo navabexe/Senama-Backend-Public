@@ -23,7 +23,7 @@ def update_order(db: Database, order_id: str, request: OrderUpdateRequest, user_
     if order["vendor_id"] != user_id:
         raise APIException("FORBIDDEN", "You can only update your own orders")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     if "status" in update_data and update_data["status"] not in ["pending", "confirmed", "shipped", "delivered",
                                                                  "cancelled"]:
         raise APIException("INVALID_ID", "Invalid status value")

@@ -46,10 +46,10 @@ def create_product(db: Database, request: ProductCreateRequest, vendor_id: str, 
         updated_at=datetime.now(timezone.utc).isoformat()
     )
 
-    result = db.products.insert_one(product.dict(exclude={"id"}))
+    result = db.products.insert_one(product.model_dump(exclude={"id"}))
     product_id = str(result.inserted_id)
 
-    create_log(db, "create", "product", product_id, vendor_id, None, product.dict(exclude={"id"}), ip_address)
+    create_log(db, "create", "product", product_id, vendor_id, None, product.model_dump(exclude={"id"}), ip_address)
 
     return ProductResponse(
         id=product_id,

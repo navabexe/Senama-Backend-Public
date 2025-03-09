@@ -42,10 +42,10 @@ def create_collaboration(db: Database, request: CollaborationCreateRequest, vend
         created_at=datetime.now(timezone.utc).isoformat()
     )
 
-    result = db.collaborations.insert_one(collaboration.dict(exclude={"id"}))
+    result = db.collaborations.insert_one(collaboration.model_dump(exclude={"id"}))
     collab_id = str(result.inserted_id)
 
-    create_log(db, "create", "collaboration", collab_id, vendor_id, None, collaboration.dict(exclude={"id"}),
+    create_log(db, "create", "collaboration", collab_id, vendor_id, None, collaboration.model_dump(exclude={"id"}),
                ip_address)
 
     return CollaborationResponse(

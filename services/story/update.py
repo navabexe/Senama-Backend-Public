@@ -20,7 +20,7 @@ def update_story(db: Database, story_id: str, request: StoryUpdateRequest, vendo
     if not story:
         raise APIException("VENDOR_NOT_FOUND", "Story not found or not owned by you")
 
-    update_data = request.dict(exclude_unset=True)
+    update_data = request.model_dump(exclude_unset=True)
     if "description" in update_data and not update_data["description"]:
         raise APIException("FIELD_REQUIRED", "description cannot be empty")
     if "category" in update_data and not update_data["category"]:
